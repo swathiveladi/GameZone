@@ -1,7 +1,7 @@
 const authMiddleware = require("../middleware/authMiddleware");
 const express = require("express");
 const router = express.Router();
-const Score = require("../models/Score");
+const Score = require("../models/score");
 
 // Save a player's score
 router.post("/", authMiddleware, async (req, res)  => {
