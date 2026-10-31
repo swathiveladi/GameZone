@@ -2,6 +2,7 @@
 import { useState } from "react";
 import "./App.css";
 import Auth from "./Auth";
+const API_URL = "https://gamezone-s25l.onrender.com";
 
 function findWinner(board) {
   const lines = [
@@ -81,7 +82,7 @@ async function showLeaderboard() {
     }
 
     const response = await fetch(
-      "http://localhost:5000/api/scores/leaderboard",
+      `${API_URL}/api/scores/leaderboard`,
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -124,7 +125,7 @@ if (!token) {
 }
 
 const response = await fetch(
-  `http://localhost:5000/api/scores/stats/${encodeURIComponent(
+ `${API_URL}/api/scores/stats/${encodeURIComponent(
     playerName.trim()
   )}`,
   {
@@ -168,7 +169,7 @@ async function saveScore(game, score, name = playerName) {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/scores",
+      `${API_URL}/api/scores`,
       {
         method: "POST",
         headers: {

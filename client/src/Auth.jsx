@@ -1,5 +1,8 @@
 
+
 import { useState } from "react";
+
+const API_URL = "https://gamezone-s25l.onrender.com";
 
 function Auth({ onLogin, onBack }) {
   const [isLogin, setIsLogin] = useState(true);
@@ -18,7 +21,7 @@ function Auth({ onLogin, onBack }) {
       const endpoint = isLogin ? "login" : "register";
 
       const response = await fetch(
-        `http://localhost:5000/api/auth/${endpoint}`,
+        `${API_URL}/api/auth/${endpoint}`,
         {
           method: "POST",
           headers: {
